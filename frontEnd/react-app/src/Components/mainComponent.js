@@ -1,7 +1,7 @@
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import Test from './testComponent';
-
+import SwipePage from '../pages/SwipePage/SwipePage';
 function Main() {
     return (
         <div>
@@ -9,7 +9,7 @@ function Main() {
                 <Routes>
                 <Route
                     path="/"
-                    element={ <Test /> }
+                    element={ <SwipePage /> }
                 />
                 </Routes>
             </div>

@@ -1,43 +1,84 @@
-import React from "react";
+import React, { useState } from "react";
 import CompanyCard from "../../Components/CompanyCard";
 import "./SwipePage.css";
 import { ButtonGroup } from "@mui/material";
 import Button from "@mui/material/Button";
+import logo from "../../assets/logo.png";
 
 function SwipePage() {
-  function handleRejectClick(evt) {
-    console.log("Reject Clicked");
+  const [counter, setCounter] = useState(0);
+  const [isEmpty, setIsEmpty] = useState(false);
+  const companies = [
+    {
+      companyLogo: logo,
+      companyName: "Quicknet",
+      companyIndustry: "Technology",
+      companyDescription:
+        "Quicknet is a technology company that specializes in the development of software and hardware solutions for the internet.",
+    },
+    {
+      companyLogo: logo,
+      companyName: "Rando",
+      companyIndustry: "Cattle Ranching",
+      companyDescription:
+        "Rando is a cattle ranching company that specializes in raising cattle.",
+    },
+    {
+      companyLogo: logo,
+      companyName: "Gwease",
+      companyIndustry: "Pulic Waste Management",
+      companyDescription:
+        "Gwease is a public waste management company that specializes in the collection and disposal of public waste.",
+    },
+  ];
+
+  function updateCompanies() {
+    if (counter >= companies.length - 1) {
+      setIsEmpty(true);
+    } else {
+      setCounter((prevCounter) => prevCounter + 1);
+    }
   }
 
-  function handleAcceptClick(evt) {
+  function handleRejectClick() {
+    console.log("Reject Clicked");
+    updateCompanies();
+  }
+
+  function handleAcceptClick() {
     console.log("Accept Clicked");
+    updateCompanies();
   }
 
   return (
     <div className="swipe-page">
-      <div className="swipe-page-contents">
-        <CompanyCard />
-        <div className="swipe-page-buttons">
-          <ButtonGroup className="d-flex">
-            <Button
-              className="p-2 flex-fill"
-              variant="contained"
-              color="error"
-              onClick={handleRejectClick}
-            >
-              Reject
-            </Button>
-            <Button
-              className="p-2 flex-fill"
-              variant="outlined"
-              color="success"
-              onClick={handleAcceptClick}
-            >
-              Accept
-            </Button>
-          </ButtonGroup>
+      {isEmpty ? (
+        <p>You have swiped on all of the companies</p>
+      ) : (
+        <div className="swipe-page-contents">
+          <CompanyCard company={companies[counter]} />
+          <div className="swipe-page-buttons">
+            <ButtonGroup className="d-flex">
+              <Button
+                className="p-2 flex-fill"
+                variant="contained"
+                color="error"
+                onClick={handleRejectClick}
+              >
+                Reject
+              </Button>
+              <Button
+                className="p-2 flex-fill"
+                variant="outlined"
+                color="success"
+                onClick={handleAcceptClick}
+              >
+                Accept
+              </Button>
+            </ButtonGroup>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }

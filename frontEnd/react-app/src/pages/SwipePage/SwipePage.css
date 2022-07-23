@@ -3,3 +3,12 @@
     flex-direction: row;
     justify-content: center;
 }
+
+.swipe-page-contents{
+    display: flex;
+    flex-direction: column;
+}
+
+.MuiButtonGroup-root{
+    width: 100%;
+}

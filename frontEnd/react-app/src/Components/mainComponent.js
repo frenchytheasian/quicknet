@@ -5,6 +5,8 @@ import EventMap from '../pages/EventMap';
 import Dashboard from '../pages/DashboardPage';
 import CompanySelect from '../pages/CompanySelect';
 import CreateEvent from '../pages/CreateEvent';
+import UpcomingEvents from '../pages/UpcomingEventsPage/UpcomingEventsPage';
+import ExplorePage from '../pages/ExplorePage/explorePage';
 function Main() {
     return (
         <div>
@@ -29,6 +31,14 @@ function Main() {
                     <Route
                         exact path="/createevent"
                         element={ <CreateEvent /> }
+                    />
+                    <Route
+                        exact path="/upcomingevents"
+                        element={ <UpcomingEvents /> }
+                    />
+                    <Route
+                        exact path="/explore"
+                        element={ <ExplorePage /> }
                     />
 
                     {/* <Navigate to="/" /> */}

@@ -6,11 +6,11 @@ import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 
 function HomePage() {
-    return (
-        <div className="home-page">
-            <Helmet>
-                <title>QuickNet</title>
-            </Helmet>
+  return (
+    <div className="home-page">
+      <Helmet>
+        <title>QuickNet</title>
+      </Helmet>
 
       <div className="container mt-5">
         <div className="row justify-content-center my-2">
@@ -36,7 +36,9 @@ function HomePage() {
             </Link>
           </div>
         </div>
-    );
+      </div>
+    </div>
+  );
 }
 
 export default HomePage;

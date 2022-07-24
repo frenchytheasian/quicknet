@@ -35,7 +35,7 @@ public class QuicknetService {
      * Main service method
      */
     public static void quicknetService() {
-        System.out.println(MongoFunctions.companyFromId("62dc6b43e4320b94f56971b7"));
+        System.out.println(MongoFunctions.events());
         //MongoConnection.mongoConnect();
     }
 

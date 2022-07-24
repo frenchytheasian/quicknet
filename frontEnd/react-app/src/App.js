@@ -4,14 +4,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import ProfilePage from './pages/profilePage';
 import Header from './Components/headerComponent';
 import Dashboard from './pages/DashboardPage';
+import CreateEvent from './pages/CreateEvent';
 
 function App() {
   return (
     <HashRouter>
-      {/* <Main /> */}
+      <Main />
       {/* <ProfilePage />  */}
       {/* <Header expand="md" /> */}
-      <Dashboard />
+      {/* <CreateEvent /> */}
     </HashRouter>
   );
 }

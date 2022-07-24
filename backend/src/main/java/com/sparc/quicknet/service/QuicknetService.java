@@ -35,8 +35,8 @@ public class QuicknetService {
      * Main service method
      */
     public static void quicknetService() {
-        MongoFunctions.findOne();
-        MongoConnection.mongoConnect();
+        System.out.println(MongoFunctions.companyFromId("62dc6b43e4320b94f56971b7"));
+        //MongoConnection.mongoConnect();
     }
 
 }

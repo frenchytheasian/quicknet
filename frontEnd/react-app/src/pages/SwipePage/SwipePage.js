@@ -55,29 +55,60 @@ function SwipePage() {
       {isEmpty ? (
         <p>You have swiped on all of the companies</p>
       ) : (
-        <div className="swipe-page-contents">
-          <CompanyCard company={companies[counter]} />
-          <div className="swipe-page-buttons">
-            <ButtonGroup className="d-flex">
-              <Button
-                className="p-2 flex-fill"
-                variant="contained"
-                color="error"
-                onClick={handleRejectClick}
-              >
-                Reject
-              </Button>
-              <Button
-                className="p-2 flex-fill"
-                variant="outlined"
-                color="success"
-                onClick={handleAcceptClick}
-              >
-                Accept
-              </Button>
-            </ButtonGroup>
+
+        <div className="container mt-5 mt-md-3">
+          <div className="row justify-content-center">
+            <div className="col-sm-12 col-md-8 col-lg-5">
+              <CompanyCard company={companies[counter]} />
+              <div className="row justify-content-center mt-1">
+                <div className="col-5">
+                <Button
+                    className="p-2 w-100"
+                    variant="outlined"
+                    color="error"
+                    onClick={handleRejectClick}
+                  >
+                    Not Interested
+                  </Button>
+                </div>
+                <div className="col-5 ml-0">
+                <Button
+                    className="p-2 w-100"
+                    variant="contained"
+                    color="success"
+                    onClick={handleAcceptClick}
+                  >
+                    Interested
+                  </Button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
+
+        // <div className="swipe-page-contents">
+        //   <CompanyCard company={companies[counter]} />
+        //   <div className="swipe-page-buttons">
+        //     <ButtonGroup className="d-flex">
+        //       <Button
+        //         className="p-2 flex-fill"
+        //         variant="contained"
+        //         color="error"
+        //         onClick={handleRejectClick}
+        //       >
+        //         Reject
+        //       </Button>
+        //       <Button
+        //         className="p-2 flex-fill"
+        //         variant="outlined"
+        //         color="success"
+        //         onClick={handleAcceptClick}
+        //       >
+        //         Accept
+        //       </Button>
+        //     </ButtonGroup>
+        //   </div>
+        // </div>
       )}
     </div>
   );

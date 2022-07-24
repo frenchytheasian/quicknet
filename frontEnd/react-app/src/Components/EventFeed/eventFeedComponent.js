@@ -26,7 +26,7 @@ function EventFeed(props) {
                 <div className="row">
                     <div className="col">
                         <EventCard
-                            eventName="Hack Midwest"
+                            eventName="Hack Midwest 2"
                             hostName="Michael Gelphman"
                             date="07/23/2022"
                         />
@@ -35,7 +35,7 @@ function EventFeed(props) {
                 <div className="row">
                     <div className="col">
                         <EventCard
-                            eventName="Hack Midwest"
+                            eventName="Hack Midwest 3"
                             hostName="Michael Gelphman"
                             date="07/23/2022"
                         />

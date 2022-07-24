@@ -7,6 +7,7 @@ import CompanySelect from '../pages/CompanySelect';
 import CreateEvent from '../pages/CreateEvent';
 import UpcomingEvents from '../pages/UpcomingEventsPage/UpcomingEventsPage';
 import ExplorePage from '../pages/ExplorePage/explorePage';
+import ProfilePage from '../pages/profilePage';
 function Main() {
     const userProps = ({
         id: '62dc756de4320b94f56971d9',
@@ -47,6 +48,10 @@ function Main() {
                     <Route
                         exact path="/explore"
                         element={ <ExplorePage /> }
+                    />
+                    <Route
+                        exact path="/profile"
+                        element={ <ProfilePage /> }
                     />
 
                     {/* <Navigate to="/" /> */}

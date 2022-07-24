@@ -15,7 +15,7 @@ function HomePage() {
             <div className="container mt-5">
                 <div className="row justify-content-center my-2">
                     <div className="col-8 col-md-5 col-lg-3">
-                        <img src={logo} className="rounded img-fluid" />
+                        <img src={logo} alt="Logo" className="rounded img-fluid" />
                     </div>
                 </div>
                 <div className="row justify-content-center my-2">

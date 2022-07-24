@@ -11,6 +11,7 @@ function SwipePage() {
   const [isEmpty, setIsEmpty] = useState(false);
   const [companyRetrieval, setCompanyRetrieval] = useState("");
   const [loading, setLoading] = useState(true);
+  const [companies, setCompanies] = useState([]);
 
   const getCompanies = async () => {
     const response = await fetch(
@@ -26,7 +27,6 @@ function SwipePage() {
   const cleanData = (input) => {
     const splitData = input.split("}{");
     const newList = splitData.map((item, ind) => {
-      console.log(item);
       if (item.length === 0) {
         return "";
       }
@@ -44,32 +44,9 @@ function SwipePage() {
   useEffect(() => {
     getCompanies();
     const jsonList = cleanData(companyRetrieval);
-    console.log(jsonList)
-  });
-
-  const companies = [
-    {
-      companyLogo: logo,
-      companyName: "Quicknet",
-      companyIndustry: "Technology",
-      companyDescription:
-        "Quicknet is a technology company that specializes in the development of software and hardware solutions for the internet.",
-    },
-    {
-      companyLogo: logo,
-      companyName: "Rando",
-      companyIndustry: "Cattle Ranching",
-      companyDescription:
-        "Rando is a cattle ranching company that specializes in raising cattle.",
-    },
-    {
-      companyLogo: logo,
-      companyName: "Gwease",
-      companyIndustry: "Pulic Waste Management",
-      companyDescription:
-        "Gwease is a public waste management company that specializes in the collection and disposal of public waste.",
-    },
-  ];
+    setCompanies(jsonList);
+    console.log(companies)
+  }, [companyRetrieval]);
 
   function updateCompanies() {
     if (counter >= companies.length - 1) {
@@ -91,12 +68,14 @@ function SwipePage() {
 
   return (
     <div className="swipe-page">
-      {isEmpty ? (
+      {loading && <div>Loading...</div>}
+      {isEmpty && !loading && (
         <div className="column justify-content">
           <h3>You have swiped on all of the companies</h3>
           <Link to={"/eventmap"}>Continue</Link>
         </div>
-      ) : (
+      )}
+      {!isEmpty && !loading && (
         <div className="container mt-5 mt-md-3">
           <div className="row justify-content-center">
             <div className="col-sm-12 col-md-8 col-lg-5">

@@ -9,10 +9,10 @@ import CreateEvent from './pages/CreateEvent';
 function App() {
   return (
     <HashRouter>
-      {/* <Main /> */}
+      <Main />
       {/* <ProfilePage />  */}
       {/* <Header expand="md" /> */}
-      <CreateEvent />
+      {/* <CreateEvent /> */}
     </HashRouter>
   );
 }

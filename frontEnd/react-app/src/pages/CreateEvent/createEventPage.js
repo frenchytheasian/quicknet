@@ -30,7 +30,7 @@ function CreateEvent() {
 
     return (
         <div>
-            <Header />
+            <Header expand='md' />
             <div className="container border mt-0 mt-md-5 mb-3 rounded shadow pb-3">
                 <div className="row justify-content-center">
                     <div className="col-10">

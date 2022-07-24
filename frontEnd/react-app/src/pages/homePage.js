@@ -29,7 +29,9 @@ function HomePage() {
                 </div>
                 <div className="row justify-content-center my-2">
                     <div className="col-8 col-md-5 col-lg-3">
-                        <Button variant="outlined" className="w-100">Login</Button>
+                        <Link to={'/dashboard'} className='text-decoration-none'>
+                            <Button variant="outlined" className="w-100">View Events</Button>
+                        </Link>
                     </div>
                 </div>
             </div>

@@ -27,7 +27,7 @@ function Header(args) {
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="me-auto" navbar>
-            <NavItem>
+            {/* <NavItem>
               <NavLink href="/">Upcoming Events</NavLink>
             </NavItem>
             <NavItem>
@@ -35,7 +35,7 @@ function Header(args) {
             </NavItem>
             <NavItem>
               <NavLink href="/">Profile</NavLink>
-            </NavItem>
+            </NavItem> */}
           </Nav>
         </Collapse>
       </Navbar>

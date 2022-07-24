@@ -58,7 +58,7 @@ public class MongoFunctions {
         Bson projectionFields = Projections.fields(
                 Projections.include("name", "bio", "hiring_link"),Projections.excludeId());
 
-        FindIterable<Document> iterDoc = collection.find();
+        FindIterable<Document> iterDoc = collection.find().projection(projectionFields);
         Iterator<Document> it = iterDoc.iterator();
         while (it.hasNext()) {
             response = response + (it.next()).toJson();

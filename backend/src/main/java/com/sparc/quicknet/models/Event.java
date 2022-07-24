@@ -9,6 +9,6 @@ import java.util.Date;
 @AllArgsConstructor
 public class Event {
     String name;
-    Address location;
+    String location;
     Date date;
 }

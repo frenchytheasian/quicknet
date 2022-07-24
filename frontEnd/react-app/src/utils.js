@@ -4,6 +4,9 @@ const cleanData = (input) => {
       if (item.length === 0) {
         return "";
       }
+      if (splitData.length === 1) {
+        return JSON.parse(item);
+      }
       if (ind === 0) {
         return JSON.parse(item + "}");
       } else if (ind === splitData.length - 1) {

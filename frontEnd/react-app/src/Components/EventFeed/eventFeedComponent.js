@@ -3,14 +3,15 @@ import EventCard from "./EventCard";
 import "./eventFeed.css";
 import { cleanData } from "../../utils";
 
-function EventFeed(props) {
+function EventFeed({user}) {
   const [rawEvents, setRawEvents] = useState("");
   const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const getEvents = async () => {
+    const url = `http://localhost:8080/api/retrieveEventsFromUser/${user.id}`
     const response = await fetch(
-      "http://localhost:8080/api/retrieveCollection/events"
+      url
     )
       .then((res) => res.text())
       .then((data) => {
@@ -22,9 +23,8 @@ function EventFeed(props) {
     getEvents();
     const jsonList = cleanData(rawEvents);
     setEvents(jsonList);
-    console.log(jsonList);
-    console.log(events);
     setLoading(false);
+    console.log(events);
   }, [rawEvents]);
 
   return (
@@ -36,7 +36,7 @@ function EventFeed(props) {
             <div className="row">
               <div className="col">
                 <EventCard
-                  eventName={event.eventName}
+                  eventName={event.name}
                   hostName={event.hostName}
                   date={event.date}
                 />

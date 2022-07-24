@@ -35,7 +35,7 @@ function Header(args) {
             </NavItem>
             <NavItem>
               <NavLink>
-                <Link to={'/explore'} className="text-decoration-none text-secondary">Explore Events</Link></NavLink>
+                <Link to={'/dashboard'} className="text-decoration-none text-secondary">Explore Events</Link></NavLink>
             </NavItem >
             <NavItem>
               <NavLink>

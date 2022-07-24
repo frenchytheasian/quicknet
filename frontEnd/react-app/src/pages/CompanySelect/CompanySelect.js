@@ -2,9 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import CompanyCard from "../../Components/CompanyCard";
 import "./CompanySelect.css";
-import { ButtonGroup } from "@mui/material";
 import Button from "@mui/material/Button";
-import logo from "../../assets/logo.png";
+import {cleanData} from "../../utils";
 
 function SwipePage() {
   const [counter, setCounter] = useState(0);
@@ -24,28 +23,10 @@ function SwipePage() {
       });
   };
 
-  const cleanData = (input) => {
-    const splitData = input.split("}{");
-    const newList = splitData.map((item, ind) => {
-      if (item.length === 0) {
-        return "";
-      }
-      if (ind === 0) {
-        return JSON.parse(item + "}");
-      } else if (ind === splitData.length - 1) {
-        return JSON.parse("{" + item);
-      } else {
-        return JSON.parse("{" + item + "}");
-      }
-    });
-    return newList;
-  };
-
   useEffect(() => {
     getCompanies();
     const jsonList = cleanData(companyRetrieval);
     setCompanies(jsonList);
-    console.log(companies)
   }, [companyRetrieval]);
 
   function updateCompanies() {
@@ -105,30 +86,6 @@ function SwipePage() {
             </div>
           </div>
         </div>
-
-        // <div className="swipe-page-contents">
-        //   <CompanyCard company={companies[counter]} />
-        //   <div className="swipe-page-buttons">
-        //     <ButtonGroup className="d-flex">
-        //       <Button
-        //         className="p-2 flex-fill"
-        //         variant="contained"
-        //         color="error"
-        //         onClick={handleRejectClick}
-        //       >
-        //         Reject
-        //       </Button>
-        //       <Button
-        //         className="p-2 flex-fill"
-        //         variant="outlined"
-        //         color="success"
-        //         onClick={handleAcceptClick}
-        //       >
-        //         Accept
-        //       </Button>
-        //     </ButtonGroup>
-        //   </div>
-        // </div>
       )}
     </div>
   );

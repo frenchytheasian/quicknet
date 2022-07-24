@@ -1,34 +1,31 @@
+import React, { useEffect, useState } from "react";
 import EventCard from "./EventCard";
 import './eventFeed.css'
+import {cleanData} from "../../utils";
 
 function EventFeed(props) {
-  const events = [
-    {
-      eventName: "Baba J",
-      hostName: "Ninja",
-      date: "07/23/2022",
-    },
-    {
-      eventName: "Hack Midwest",
-      hostName: "Michael Gelphman",
-      date: "07/23/2022",
-    },
-    {
-      eventName: "Hack Midwest 2",
-      hostName: "Michael Gelphman",
-      date: "07/23/2022",
-    },
-    {
-      eventName: "Hack Midwest 3",
-      hostName: "Michael Gelphman",
-      date: "07/23/2022",
-    },
-    {
-      eventName: "Forty Nitey",
-      hostName: "Renegade Raider",
-      date: "07/23/2022",
-    },
-  ];
+  const [rawEvents, setRawEvents] = useState("")
+  const [events, setEvents] = useState([])
+  const [loading, setLoading] = useState(true)
+
+  const getEvents = async () => {
+    const response = await fetch(
+      "http://localhost:8080/api/retrieveCollection/events"
+    )
+      .then((res) => res.text())
+      .then((data) => {
+        setRawEvents(data);
+        setLoading(false);
+      });
+  };
+
+  useEffect(() => {
+    getEvents();
+    const jsonList = cleanData(rawEvents);
+    setEvents(jsonList);
+    console.log(jsonList)
+    console.log(events)
+  }, [rawEvents]);
 
   return (
     <div className="event-feed">

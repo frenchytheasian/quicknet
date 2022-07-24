@@ -9,11 +9,11 @@ import SwipePage from './pages/SwipePage';
 function App() {
   return (
     <HashRouter>
-      {/* <Main /> */}
+      <Main />
       {/* <ProfilePage />  */}
       {/* <Header expand="md" /> */}
       {/* <Dashboard /> */}
-      <SwipePage />
+      {/* <SwipePage /> */}
     </HashRouter>
   );
 }

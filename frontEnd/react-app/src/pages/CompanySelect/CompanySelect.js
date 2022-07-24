@@ -55,7 +55,7 @@ function SwipePage() {
   return (
     <div className="swipe-page">
       {isEmpty ? (
-        <div>
+        <div className="column justify-content">
           <h3>You have swiped on all of the companies</h3>
           <Link to={'/eventmap'}>Continue</Link>
         </div>

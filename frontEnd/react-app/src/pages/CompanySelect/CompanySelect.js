@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import CompanyCard from "../../Components/CompanyCard";
-import "./SwipePage.css";
+import "./CompanySelect.css";
 import { ButtonGroup } from "@mui/material";
 import Button from "@mui/material/Button";
 import logo from "../../assets/logo.png";

@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import EventCard from "./EventCard";
-import './eventFeed.css'
-import {cleanData} from "../../utils";
+import "./eventFeed.css";
+import { cleanData } from "../../utils";
 
 function EventFeed(props) {
-  const [rawEvents, setRawEvents] = useState("")
-  const [events, setEvents] = useState([])
-  const [loading, setLoading] = useState(true)
+  const [rawEvents, setRawEvents] = useState("");
+  const [events, setEvents] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const getEvents = async () => {
     const response = await fetch(
@@ -15,7 +15,6 @@ function EventFeed(props) {
       .then((res) => res.text())
       .then((data) => {
         setRawEvents(data);
-        setLoading(false);
       });
   };
 
@@ -23,25 +22,29 @@ function EventFeed(props) {
     getEvents();
     const jsonList = cleanData(rawEvents);
     setEvents(jsonList);
-    console.log(jsonList)
-    console.log(events)
+    console.log(jsonList);
+    console.log(events);
+    setLoading(false);
   }, [rawEvents]);
 
   return (
     <div className="event-feed">
-      <div className="container">
-        {events.map((event) => (
-          <div className="row">
-            <div className="col">
-              <EventCard
-                eventName={event.eventName}
-                hostName={event.hostName}
-                date={event.date}
-              />
+      {loading && <div>Loading...</div>}
+      {!loading && (
+        <div className="container">
+          {events.map((event) => (
+            <div className="row">
+              <div className="col">
+                <EventCard
+                  eventName={event.eventName}
+                  hostName={event.hostName}
+                  date={event.date}
+                />
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

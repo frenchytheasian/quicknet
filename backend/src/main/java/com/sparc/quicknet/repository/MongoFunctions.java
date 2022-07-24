@@ -59,9 +59,9 @@ public class MongoFunctions {
                 Projections.include("name", "bio", "hiring_link"),Projections.excludeId());
 
         FindIterable<Document> iterDoc = collection.find();
-        Iterator it = iterDoc.iterator();
+        Iterator<Document> it = iterDoc.iterator();
         while (it.hasNext()) {
-            response = response + ((Document)it.next()).toJson();
+            response = response + (it.next()).toJson();
         }
         return response;
     }

@@ -1,7 +1,7 @@
 import Header from "../Components/headerComponent";
 import EventFeed from "../Components/EventFeed";
 
-function Dashboard() {
+function Dashboard({user}) {
     return (
         <div>
             <Header expand='md' />
@@ -9,7 +9,7 @@ function Dashboard() {
                 <div className="container margin-top">
                     <div className="row justify-content-center">
                         <div className="col-10 col-lg-8">
-                            <EventFeed />
+                            <EventFeed user={user}/>
                         </div>
                     </div>
                 </div>

@@ -59,7 +59,7 @@ function SwipePage() {
       {!isEmpty && !loading && (
         <div className="container mt-5 mt-md-3">
           <div className="row justify-content-center">
-            <div className="col-sm-12 col-md-8 col-lg-5">
+            <div className="col-sm-8 col-md-6 col-lg-4">
               <CompanyCard company={companies[counter]} />
               <div className="row justify-content-center mt-1">
                 <div className="col-5">

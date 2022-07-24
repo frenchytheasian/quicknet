@@ -29,4 +29,27 @@ public class MongoFunctions{
             throw(e);
         }
     }
+
+    public static String eventsForUser(String userId) {
+        String uri = "mongodb+srv://fortnite:BruHbabaJ76$@quicknet.z29dg.mongodb.net/?retryWrites=true&w=majority";
+        String response = "";
+
+        try (MongoClient mongoClient = MongoClients.create(uri)) {
+            MongoDatabase database = mongoClient.getDatabase("QuickNet");
+            MongoCollection<Document> collection = database.getCollection("users");
+
+            Bson projectionFields = Projections.fields(
+                    Projections.include("name", "bio", "profile_pic", "linked_in_profile", "events"), Projections.excludeId()
+            );
+
+            Document userDoc = collection.find(eq("_id", userId)).first();
+
+            //TODO: grab Event Objects from the name of events
+
+            return response;
+        } catch (Exception e) {
+            throw(e);
+        }
+    }
+
 }

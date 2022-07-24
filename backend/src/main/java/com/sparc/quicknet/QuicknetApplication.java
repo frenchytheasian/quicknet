@@ -1,5 +1,6 @@
 package com.sparc.quicknet;
 
+import com.sparc.quicknet.repository.MongoFunctions;
 import com.sparc.quicknet.service.QuicknetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -11,8 +12,8 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 public class QuicknetApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(QuicknetApplication.class, args);
-		QuicknetService.quicknetService();
+//		SpringApplication.run(QuicknetApplication.class, args);
+		MongoFunctions.eventsForUser("62dc756e4320b94f56971d9");
 	}
 
 }

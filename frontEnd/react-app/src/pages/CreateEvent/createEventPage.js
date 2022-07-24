@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Helmet } from 'react-helmet';
 
 import { Card, CardHeader, CardTitle, CardText, CardBody, Form, FormGroup, Label, Col, Input, Row, Button } from 'reactstrap'
 import Header from '../../Components/headerComponent';
@@ -30,6 +31,10 @@ function CreateEvent() {
 
     return (
         <div>
+            <Helmet>
+                <title>Create New Event | QuickNet</title>
+            </Helmet>
+
             <Header expand='md' />
             <div className="container border mt-0 mt-md-5 mb-3 rounded shadow pb-3">
                 <div className="row justify-content-center">

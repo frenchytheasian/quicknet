@@ -3,25 +3,25 @@ import React from "react";
 import "./CompanyCard.css";
 
 function CompanyCard({ company }) {
-  const { companyName, companyIndustry, companyLogo, companyDescription } = company;
+  const { name, field, logo, bio, hiring_link: hiringLink } = company;
 
   return (
 
     <div className="card">
       <div className="card-header">
-        <h1>{companyName}</h1>
+        <h1>{name}</h1>
       </div>
-      <img src={companyLogo} alt="company" className="img-fluid" />
+      <img src={logo} alt="company" className="img-fluid" />
       <div className="card-body">
-        <p>Industry: {companyIndustry}</p>
+        <p>Industry: {field}</p>
         <div>
-          <p className="company-description">Description: {companyDescription}</p>
+          <p className="company-description">Description: {bio}</p>
         </div>
         
         <p>
           Job Postings:{" "}
-          <a href="https://create-react-app.dev/docs/adding-images-fonts-and-files/">
-            {companyName} Jobs
+          <a href={hiringLink}>
+            {name} Jobs
           </a>
         </p>
       </div>

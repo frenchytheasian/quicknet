@@ -12,7 +12,6 @@ public class QuicknetApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(QuicknetApplication.class, args);
-		QuicknetService.quicknetService();
 	}
 
 }

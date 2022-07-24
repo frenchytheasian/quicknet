@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import CompanyCard from "../../Components/CompanyCard";
 import "./CompanySelect.css";
@@ -9,30 +9,44 @@ import logo from "../../assets/logo.png";
 function SwipePage() {
   const [counter, setCounter] = useState(0);
   const [isEmpty, setIsEmpty] = useState(false);
+  const [companyRetrieval, setCompanyRetrieval] = useState("");
+  const [loading, setLoading] = useState(true);
+  const [companies, setCompanies] = useState([]);
 
-  const companies = [
-    {
-      companyLogo: logo,
-      companyName: "Quicknet",
-      companyIndustry: "Technology",
-      companyDescription:
-        "Quicknet is a technology company that specializes in the development of software and hardware solutions for the internet.",
-    },
-    {
-      companyLogo: logo,
-      companyName: "Rando",
-      companyIndustry: "Cattle Ranching",
-      companyDescription:
-        "Rando is a cattle ranching company that specializes in raising cattle.",
-    },
-    {
-      companyLogo: logo,
-      companyName: "Gwease",
-      companyIndustry: "Pulic Waste Management",
-      companyDescription:
-        "Gwease is a public waste management company that specializes in the collection and disposal of public waste.",
-    },
-  ];
+  const getCompanies = async () => {
+    const response = await fetch(
+      "http://localhost:8080/api/retrieveCollection/companies"
+    )
+      .then((res) => res.text())
+      .then((data) => {
+        setCompanyRetrieval(data);
+        setLoading(false);
+      });
+  };
+
+  const cleanData = (input) => {
+    const splitData = input.split("}{");
+    const newList = splitData.map((item, ind) => {
+      if (item.length === 0) {
+        return "";
+      }
+      if (ind === 0) {
+        return JSON.parse(item + "}");
+      } else if (ind === splitData.length - 1) {
+        return JSON.parse("{" + item);
+      } else {
+        return JSON.parse("{" + item + "}");
+      }
+    });
+    return newList;
+  };
+
+  useEffect(() => {
+    getCompanies();
+    const jsonList = cleanData(companyRetrieval);
+    setCompanies(jsonList);
+    console.log(companies)
+  }, [companyRetrieval]);
 
   function updateCompanies() {
     if (counter >= companies.length - 1) {
@@ -54,20 +68,21 @@ function SwipePage() {
 
   return (
     <div className="swipe-page">
-      {isEmpty ? (
-        <div>
+      {loading && <div>Loading...</div>}
+      {isEmpty && !loading && (
+        <div className="column justify-content">
           <h3>You have swiped on all of the companies</h3>
-          <Link to={'/eventmap'}>Continue</Link>
+          <Link to={"/eventmap"}>Continue</Link>
         </div>
-      ) : (
-
+      )}
+      {!isEmpty && !loading && (
         <div className="container mt-5 mt-md-3">
           <div className="row justify-content-center">
             <div className="col-sm-12 col-md-8 col-lg-5">
               <CompanyCard company={companies[counter]} />
               <div className="row justify-content-center mt-1">
                 <div className="col-5">
-                <Button
+                  <Button
                     className="p-2 w-100"
                     variant="outlined"
                     color="error"
@@ -77,7 +92,7 @@ function SwipePage() {
                   </Button>
                 </div>
                 <div className="col-5 ml-0">
-                <Button
+                  <Button
                     className="p-2 w-100"
                     variant="contained"
                     color="success"

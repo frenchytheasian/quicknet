@@ -40,11 +40,10 @@ public class MongoFunctions{
             MongoCollection<Document> collection = database.getCollection("users");
 
             Bson projectionFields = Projections.fields(
-                    Projections.include("name", "bio", "profile_pic", "linked_in_profile", "events"), Projections.excludeId()
+                    Projections.include("events"), Projections.excludeId()
             );
 
             Document userDoc = collection.find(eq("_id", new ObjectId(userId))).projection(projectionFields).first();
-
             String userString = userDoc.toString();
 
             userString = userString.replaceAll(".*events=\\[", "");

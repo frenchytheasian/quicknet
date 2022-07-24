@@ -8,10 +8,9 @@ import Dashboard from './pages/DashboardPage';
 function App() {
   return (
     <HashRouter>
-      {/* <Main /> */}
+      <Main />
       {/* <ProfilePage />  */}
       {/* <Header expand="md" /> */}
-      <Dashboard />
     </HashRouter>
   );
 }

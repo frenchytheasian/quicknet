@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import CompanyCard from "../../Components/CompanyCard";
 import "./CompanySelect.css";
 import { ButtonGroup } from "@mui/material";
@@ -8,6 +9,7 @@ import logo from "../../assets/logo.png";
 function SwipePage() {
   const [counter, setCounter] = useState(0);
   const [isEmpty, setIsEmpty] = useState(false);
+
   const companies = [
     {
       companyLogo: logo,
@@ -53,7 +55,10 @@ function SwipePage() {
   return (
     <div className="swipe-page">
       {isEmpty ? (
-        <p>You have swiped on all of the companies</p>
+        <div>
+          <h3>You have swiped on all of the companies</h3>
+          <Link to={'/eventmap'}>Continue</Link>
+        </div>
       ) : (
         <div className="swipe-page-contents">
           <CompanyCard company={companies[counter]} />

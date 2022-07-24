@@ -17,9 +17,9 @@ public class MongoFunctions {
             MongoDatabase database = mongoClient.getDatabase("QuickNet");
             MongoCollection<Document> collection = database.getCollection("companies");
             Bson projectionFields = Projections.fields(
-                    Projections.include("title"),
+                    Projections.include("name"),
                     Projections.excludeId());
-            Document doc = collection.find(eq("name", "QuickNet"))
+            Document doc = collection.find(eq("name", "PINATA"))
                     .projection(projectionFields)
                     .first();
             if (doc == null) {

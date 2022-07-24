@@ -34,11 +34,10 @@ public class QuicknetService {
     /**
      * Main service method
      */
-    public static void quicknetService() {
-        System.out.println(MongoFunctions.returnCollection("events"));
-        System.out.println(MongoFunctions.returnCollection("companies"));
-        System.out.println(MongoFunctions.returnCollection("users"));
-        //MongoConnection.mongoConnect();
+    public static String quicknetService(String collectionName) {
+        String result = (MongoFunctions.returnCollection(collectionName));
+
+        return result;
     }
 
 }

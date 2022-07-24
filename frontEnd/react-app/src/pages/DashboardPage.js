@@ -1,6 +1,5 @@
 import Header from "../Components/headerComponent";
-import EventCard from "../Components/eventCardComponent";
-import EventFeed from "../Components/eventFeedComponent";
+import EventFeed from "../Components/EventFeed";
 
 function Dashboard() {
     return (

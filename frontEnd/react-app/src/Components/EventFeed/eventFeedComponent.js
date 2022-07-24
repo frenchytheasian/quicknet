@@ -1,5 +1,5 @@
-import EventCard from "./eventCardComponent";
-import '../Stylesheets/eventFeed.css'
+import EventCard from "../EventCard";
+import './eventFeed.css'
 
 function EventFeed(props) {
     return (

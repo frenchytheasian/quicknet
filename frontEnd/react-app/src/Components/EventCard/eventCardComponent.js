@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from '@mui/material/Button'
-import '../Stylesheets/eventCard.css'
+import './eventCard.css'
 import { Card, CardBody, CardTitle, CardSubtitle, CardText } from 'reactstrap'
 
 function EventCard(props) {

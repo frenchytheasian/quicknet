@@ -14,16 +14,16 @@ function HomePage() {
         }}>
             <cl>
                 <h1>
-                    <img src={logo} style={{
+                    <img src={logo} className="rounded" style={{
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
-                        height: '20vh',
+                        height: '20vw',
                     }} />
                 </h1>
                 <h2>
                     <Button variant="outlined" style = {{
-                        minWidth: '20vh',
+                        minWidth: '20vw',
                     }}>Create Event</Button>
                 </h2>
                 <h3>

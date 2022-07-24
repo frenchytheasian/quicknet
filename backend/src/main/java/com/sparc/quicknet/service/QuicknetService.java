@@ -3,6 +3,7 @@ package com.sparc.quicknet.service;
 import com.sparc.quicknet.models.Company;
 import com.sparc.quicknet.models.Recruiter;
 import com.sparc.quicknet.repository.MongoConnection;
+import com.sparc.quicknet.repository.MongoFunctions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
@@ -34,7 +35,10 @@ public class QuicknetService {
      * Main service method
      */
     public static void quicknetService() {
-        MongoConnection.mongoConnect();
+        System.out.println(MongoFunctions.returnCollection("events"));
+        System.out.println(MongoFunctions.returnCollection("companies"));
+        System.out.println(MongoFunctions.returnCollection("users"));
+        //MongoConnection.mongoConnect();
     }
 
 }

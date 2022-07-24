@@ -8,7 +8,7 @@ function Dashboard() {
             <div>
                 <div className="container margin-top">
                     <div className="row justify-content-center">
-                        <div className="col-6">
+                        <div className="col-10 col-lg-8">
                             <EventFeed />
                         </div>
                     </div>

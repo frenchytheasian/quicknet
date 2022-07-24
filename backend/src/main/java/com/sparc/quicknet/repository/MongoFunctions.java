@@ -6,6 +6,7 @@ import com.sparc.quicknet.models.Event;
 import org.bson.Document;
 import org.bson.conversions.Bson;
 import com.mongodb.client.model.Projections;
+import org.bson.types.ObjectId;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -42,9 +43,23 @@ public class MongoFunctions{
                     Projections.include("name", "bio", "profile_pic", "linked_in_profile", "events"), Projections.excludeId()
             );
 
-            Document userDoc = collection.find(eq("_id", userId)).first();
+            Document userDoc = collection.find(eq("_id", new ObjectId(userId))).projection(projectionFields).first();
 
-            //TODO: grab Event Objects from the name of events
+            String userString = userDoc.toString();
+
+            userString = userString.replaceAll(".*events=\\[", "");
+            userString = userString.replaceAll("\\]}}", "");
+
+            String[] events = userString.split(",");
+
+            collection = database.getCollection("events");
+            Document eventDoc;
+            String eventJson;
+            for(int i = 0; i < events.length - 1; i++) {
+                eventDoc = collection.find(eq("name", events[i])).first();
+                eventJson = eventDoc.toJson();
+                response = response + eventJson;
+            }
 
             return response;
         } catch (Exception e) {

@@ -30,6 +30,7 @@ import static com.mongodb.client.model.Updates.*;
 public class QuicknetService {
 
     public static QuicknetService quickService = new QuicknetService();
+    public static MongoFunctions mongoService = new MongoFunctions();
 
     /**
      * Main service method
@@ -38,6 +39,12 @@ public class QuicknetService {
         String result = (MongoFunctions.returnCollection(collectionName));
 
         return result;
+    }
+
+    public String retrieveEventsFromUserID(String userID) {
+        String events = mongoService.eventsForUser(userID);
+
+        return events;
     }
 
 }

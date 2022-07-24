@@ -17,16 +17,16 @@ public class QuicknetController implements BaseController{
     @Autowired
     public QuicknetController (QuicknetService quickService) { this.quickService = quickService; }
 
-    @GetMapping("/retrieveHelloWorld")
-    public ResponseEntity<String> retrieveHelloWorld () {
-        ResponseEntity<String> response = (ResponseEntity<String>) respond("Hello Michael");
+    @GetMapping("/retrieveCollection/{collection}")
+    public ResponseEntity<String> retrieveEvents (@PathVariable("collection") String collection) {
+        ResponseEntity<String> response = (ResponseEntity<String>) respond(QuicknetService.quicknetService(collection));
 
         return response;
     }
 
-    @GetMapping("/retrieveCollection/{collection}")
-    public ResponseEntity<String> retrieveEvents (@PathVariable("collection") String collection) {
-        ResponseEntity<String> response = (ResponseEntity<String>) respond(QuicknetService.quicknetService(collection));
+    @GetMapping("/retrieveEventsFromUser/{userID}")
+    public ResponseEntity<String> retrieveEventsFromUser (@PathVariable("userID") String userID) {
+        ResponseEntity<String> response = (ResponseEntity<String>) respond(quickService.retrieveEventsFromUserID(userID));
 
         return response;
     }

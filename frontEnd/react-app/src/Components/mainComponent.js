@@ -5,6 +5,8 @@ import EventMap from '../pages/EventMap';
 import Dashboard from '../pages/DashboardPage';
 import CompanySelect from '../pages/CompanySelect';
 import CreateEvent from '../pages/CreateEvent';
+import UpcomingEvents from '../pages/UpcomingEventsPage/UpcomingEventsPage';
+import ExplorePage from '../pages/ExplorePage/explorePage';
 function Main() {
     const userProps = ({
         id: '62dc756de4320b94f56971d9',
@@ -37,6 +39,14 @@ function Main() {
                     <Route
                         exact path="/createevent"
                         element={ <CreateEvent user={userProps}/> }
+                    />
+                    <Route
+                        exact path="/upcomingevents"
+                        element={ <UpcomingEvents /> }
+                    />
+                    <Route
+                        exact path="/explore"
+                        element={ <ExplorePage /> }
                     />
 
                     {/* <Navigate to="/" /> */}

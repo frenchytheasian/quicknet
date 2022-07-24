@@ -4,7 +4,7 @@ import EventFeed from "../Components/EventFeed";
 function Dashboard() {
     return (
         <div>
-            <Header expand="md" />
+            <Header expand='md' />
             <div>
                 <div className="container margin-top">
                     <div className="row justify-content-center">

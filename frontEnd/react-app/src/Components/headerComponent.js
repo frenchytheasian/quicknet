@@ -21,7 +21,7 @@ function Header(args) {
     const toggle = () => setIsOpen(!isOpen);
 
     return (
-        <div>
+        <div className='shadow-sm'>
       <Navbar {...args}>
         <NavbarBrand href="/">QuickNet</NavbarBrand>
         <NavbarToggler onClick={toggle} />

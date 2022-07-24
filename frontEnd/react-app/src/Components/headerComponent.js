@@ -37,6 +37,10 @@ function Header(args) {
               <NavLink>
                 <Link to={'/explore'} className="text-decoration-none text-secondary">Explore Events</Link></NavLink>
             </NavItem >
+            <NavItem>
+              <NavLink>
+                <Link to={'/profile'} className="text-decoration-none text-secondary">Profile</Link></NavLink>
+            </NavItem >
           </Nav>
         </Collapse>
       </Navbar>

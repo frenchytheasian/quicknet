@@ -1,5 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { TableContainer, Table } from "@mui/material";
+import { Button } from "@mui/material";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
 import TableHead from "@mui/material/TableHead";
@@ -41,7 +43,13 @@ function EventMap() {
   ];
   return (
     <div>
-      <h1>Event Map</h1>
+      <div className="header">
+        <h1>Event Map</h1>
+        <Link to={'/dashboard'}>
+        <Button variant='outlined'>Go Home</Button>
+        </Link>
+      </div>
+
       <TableContainer>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>

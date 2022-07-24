@@ -15,7 +15,7 @@ public class MongoFunctions {
 
         try (MongoClient mongoClient = MongoClients.create(uri)) {
             MongoDatabase database = mongoClient.getDatabase("QuickNet");
-            MongoCollection<Document> collection = database.getCollection("Companies");
+            MongoCollection<Document> collection = database.getCollection("companies");
             Bson projectionFields = Projections.fields(
                     Projections.include("title"),
                     Projections.excludeId());

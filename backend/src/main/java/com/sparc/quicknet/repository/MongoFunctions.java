@@ -14,7 +14,7 @@ import java.util.Iterator;
 
 public class MongoFunctions{
     public static String returnCollection(String collectionName) {
-        String uri = "mongodb+srv://fortnite:BruHbabaJ76$@quicknet.z29dg.mongodb.net/?retryWrites=true&w=majority";
+        String uri = System.getenv("MONGO_URI");
         String response = "";
 
         try (MongoClient mongoClient = MongoClients.create(uri)) {
@@ -32,7 +32,7 @@ public class MongoFunctions{
     }
 
     public static String eventsForUser(String userId) {
-        String uri = "mongodb+srv://fortnite:BruHbabaJ76$@quicknet.z29dg.mongodb.net/?retryWrites=true&w=majority";
+        String uri = System.getenv("MONGO_URI");
         String response = "";
 
         try (MongoClient mongoClient = MongoClients.create(uri)) {

@@ -18,7 +18,7 @@ import com.mongodb.client.MongoDatabase;
 public class MongoConnection {
 
     public static void mongoConnect() {
-        String uri = "mongodb+srv://fortnite:BruHbabaJ76$@quicknet.z29dg.mongodb.net/?retryWrites=true&w=majority";
+        String uri = System.getenv("MONGO_URI");
 
         try (MongoClient mongoClient = MongoClients.create(uri)) {
 
